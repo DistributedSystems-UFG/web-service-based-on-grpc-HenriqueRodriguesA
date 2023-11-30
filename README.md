@@ -41,3 +41,7 @@ $:> python3 EmployeeService.py
 $:> python3 EmployeeClient.py
 
 ### Note: open port 50051 on the firewall at EC2 (security group)
+
+## Foi implementado verificação de erro para criação de funcionário que já existe e de update de funcionário que não existe  
+
+## Foi adicionado o item salário a funcionária e os métodos de atualizar o salário e buscar a media dos salarios
