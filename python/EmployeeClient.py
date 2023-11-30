@@ -20,16 +20,30 @@ def run():
         print ('Added new employee ' + response.status)
 
         # Change an employee's title
-        response = stub.UpdateEmployeeTitle(EmployeeService_pb2.EmployeeTitleUpdate(id=301, title='Senior Programmer'))
+        response = stub.UpdateEmployeeTitle(EmployeeService_pb2.EmployeeTitleUpdate(id=401, title='Senior Programmer'))
         print ('Updated employee ' + response.status)
 
         # Delete an employee
-        response = stub.DeleteEmployee(EmployeeService_pb2.EmployeeID(id=201))
+        response = stub.DeleteEmployee(EmployeeService_pb2.EmployeeID(id=401))
         print ('Deleted employee ' + response.status)
 
         # List all employees
         response = stub.ListAllEmployees(EmployeeService_pb2.EmptyMessage())
         print ('All employees: ' + str(response))
+
+        # New endpoint
+
+        # Change an employee's Salary
+        response = stub.UpdateEmployeeSalary(EmployeeService_pb2.EmployeeSalaryUpdate(id=301, salary=8000))
+        print ('Updated employee salary ' + response.status)
+
+        # List all employees
+        response = stub.ListAllEmployees(EmployeeService_pb2.EmptyMessage())
+        print ('All employees: ' + str(response))
+
+        # List Salary Average
+        response = stub.CalculateAverageSalary(EmployeeService_pb2.EmptyMessage())
+        print ('Salary Average: ' + str(response))
 
 if __name__ == '__main__':
     logging.basicConfig()
