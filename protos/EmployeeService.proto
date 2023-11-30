@@ -14,6 +14,10 @@ service EmployeeService {
   rpc GetEmployeeDataFromID (EmployeeID) returns (EmployeeData) {}
   // Update an employee´s title/position
   rpc UpdateEmployeeTitle (EmployeeTitleUpdate) returns (StatusReply) {}
+  // Update an employee's salary
+  rpc UpdateEmployeeSalary (EmployeeSalaryUpdate) returns (StatusReply) {}
+  // Returns averaga Salary of all employee´s
+  rpc CalculateAverageSalary (EmptyMessage) returns (AverageSalaryReply) {}
   // Delete an employee
   rpc DeleteEmployee (EmployeeID) returns (StatusReply) {}
   // List all employees
@@ -25,6 +29,7 @@ message EmployeeData {
   uint32 id = 1;
   string name = 2;
   string title = 3;
+  double salary = 4;
 }
 
 message StatusReply {
@@ -38,6 +43,16 @@ message EmployeeID {
 message EmployeeTitleUpdate {
   uint32 id = 1;
   string title = 2;
+}
+
+message EmployeeSalaryUpdate {
+  uint32 id = 1;
+  double salary = 2;
+}
+
+message AverageSalaryReply {
+    string status = 1;
+    double average_salary = 2;
 }
 
 message EmptyMessage{}
